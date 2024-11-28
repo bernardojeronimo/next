@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.mjs", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "componentes/Footer/Footer.js", "app/layout.tsx", "app/page.js", "app/tecnologias/page.js", "app/produtos/page.js", "next.config.mjs", "tailwind.config.js"],
+  "include": ["next-env.d.mjs", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/componentes/Footer/Footer.tsx", "app/layout.tsx", "app/page.tsx", "app/tecnologias/page.tsx", "app/produtos/page.tsx", "next.config.mjs", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }
