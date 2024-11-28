@@ -9,21 +9,37 @@ body {
   padding: 0;
   margin: 0;
 
-  /* background */
-  background: url('https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_1280.png');
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat;
+  background-color: rgb(161, 205, 244);
 }
 
 main {
-  /* box model */
   width: 320px;
   height: 450px;
   padding: 20px;
   border-radius: 20px;
-  overflow-y: auto;
+  background: rgb(199, 228, 252);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s;
+}
 
-  /* background */
-  background: whitesmoke;
+@keyframes neon {
+  0% {
+    color: rgb(159, 227, 227);
+  }
+  50% {
+    color: rgb(29, 160, 160);
+  }
+  100%{
+    color: rgb(159, 227, 227);
+  }
+}
+
+h1 {
+  color: rgb(177, 226, 226);
+  animation: neon 10s ease-in-out infinite; 
+}
+
+main:hover {
+  background: rgb(209, 225, 238);
+  transform: translateY(3px); 
 }
