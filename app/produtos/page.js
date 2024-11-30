@@ -1,40 +1,63 @@
-// app/produtos/page.js
 "use client";
-import React, { useEffect, useState } from 'react';
-import Card from '../produtos/Card';
 
-const ProdutosPage = () => {
-  const [produtos, setProdutos] = useState([]);
+import { useEffect, useState } from "react";
+import Produtos from "./Card";
 
-  // Buscando dados da API usando useEffect
+export default function Home() {
+
   useEffect(() => {
-    async function fetchProdutos() {
-      try {
-        const res = await fetch('https://deisishop.pythonanywhere.com/products/');
-        const data = await res.json();
-        setProdutos(data);
-      } catch (error) {
-        console.error('Erro ao carregar os produtos:', error);
-      }
-    }
-
-    fetchProdutos();
+    document.body.classList.add('home-body');
+    return () => {
+      document.body.classList.remove('home-body');
+    };
   }, []);
+  const [produtos, setProdutos] = useState([]);
+  const [carrinho, setCarrinho] = useState([]);
+
+  useEffect(() => {
+    // Carregar os produtos
+    fetch('https://deisishop.pythonanywhere.com/products/')
+      .then(response => response.json())
+      .then(data => setProdutos(data))
+      .catch(error => console.error('Erro ao carregar produtos:', error));
+
+    // Carregar carrinho do localStorage
+    const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho')) || [];
+    setCarrinho(carrinhoSalvo);
+  }, []);
+
+  const adicionarCarrinho = (produto) => {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    carrinho.push(produto);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    setCarrinho(carrinho);
+  };
+
+  const removerCarrinho = (produto) => {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho'));
+
+        const index = carrinho.findIndex(p => p.title == produto.title);
+        if (index != -1) {
+            carrinho.splice(index, 1);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        }
+      setCarrinho(carrinho);
+  };
 
   return (
     <main>
-      <h2>Produtos Disponíveis</h2>
-      <section className="produtos" id="produtos">
-        {produtos.length > 0 ? (
-          produtos.map(produto => (
-            <Card key={produto.id} produto={produto} />
-          ))
-        ) : (
-          <p>Carregando produtos...</p>
-        )}
+      <h2>Selecione os seus Produtos</h2>
+
+      <section id="produtos">
+        <Produtos
+          produtos={produtos} 
+          setProdutos={setProdutos} 
+          carrinho={carrinho}
+          adicionarCarrinho={adicionarCarrinho}
+          removerCarrinho={removerCarrinho}
+        />
       </section>
     </main>
   );
-};
-
-export default ProdutosPage;
+}

@@ -40,6 +40,7 @@
   }
 }
 
+
 body {
   display: flex;
   flex-direction: column;
@@ -52,18 +53,18 @@ body {
   background-position: center;
 }
 
+
 .mainCarta {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
 .carta {
-  margin: 20px;
+  margin: 10px;
   width: 385px;
   height: 545px;
-  perspective: 1000px; 
+  perspective: 1000px;
 }
 
 .carta-conteudo {
@@ -84,7 +85,6 @@ body {
   height: 100%;
   border-radius: 15px;
   backface-visibility: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .carta-traseira {
@@ -99,7 +99,6 @@ body {
   flex-wrap: wrap;
   background-color: #fff;
   color: #000;
-  display: flex;
   flex-direction: column;
   transform: rotateY(180deg);
   z-index: 1;
@@ -123,6 +122,53 @@ body {
   justify-content: center;
 }
 
+h2{
+  display: flex;
+  color: #333;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  
+}
+
+.home-body{
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  padding-top: 80px;
+  justify-content: center;
+  align-items: center;
+  background-image: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.home-body nav a{
+  text-shadow: none;
+}
+
+.home-body header {
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: black;
+}
+
+.home-body  a {
+  color: #ded5d5;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+
+.home-body h1{
+  color: #b4d9f1;
+  padding: 2px;
+  text-shadow:none;
+}
+
+
 .pCont {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -131,7 +177,6 @@ body {
   width: 80%;
   margin: auto;
 }
-
 
 .produto {
   border: 1px solid #ddd;
@@ -300,6 +345,7 @@ body {
 }
 
 
+
 #carrinho {
   background-color: #e6f2ff; 
   padding: 20px;
@@ -339,137 +385,16 @@ body {
   margin: auto;
 }
 
-.comprar {
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px auto;
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 80%;
-}
-
-.estudante{
-  margin-top: 15px;
-  font-size: 16px;
-}
-
-.cupao{
-  margin-top: 15px;
-  font-size: 16px;
-}
-
-.comprar input[type="text"] {
-  padding: 10px;
-  width: 40%;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: border-color 0.3s;
-}
-.comprar input[type="text"]:focus {
-  border-color: #1674b1;
-  outline: none;
-}
-
-.comprar button {
-  margin-top: 15px;
-  background-color: #1674b1;
-  color: white;
-  padding: 12px 24px; 
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.recibo{
-  color: #16547d;
-  font-weight: bold;
-  margin-top: 15px;
-  font-size: 17px;
-}
-
-
 .total {
-  margin-top: 20px;
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  justify-content: center;
+  padding: 10px;
   font-size: 24px;
   font-weight: bold;
   color: #1674b1;
 }
-
-
-.filtros{
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  align-items: center;
-}
-
-.filtros h3{
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.filtros select{
-  padding: 5px;
-  border-radius: 5px;
-}
-.filtros input {
-  padding: 4px 8px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  transition: border-color 0.3s;
-}
-
-/* comprar responsivo */
-
-@media (max-width: 768px) {
-  .comprar {
-    justify-content: center;
-    padding: 20px;
-    width: 90%;
-    max-width: 100%;
-  }
-
-  .comprar input[type="text"] {
-    width: 60%;
-  }
-
-  .comprar button {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .comprar {
-    flex-direction: column;
-    padding: 15px;
-    width: 100%;
-  }
-
-  .comprar input[type="text"] {
-    width: 80%;
-    font-size: 14px;
-  }
-
-  .comprar button {
-    font-size: 14px;
-    padding: 8px 16px; 
-  }
-  .recibo{
-    font-size: 12px;
-  }
-}
-
 
 @media (max-width: 1200px) {
   .pCont,
@@ -496,7 +421,7 @@ body {
 
   header {
       flex-direction: column;
-      padding: 10px;
+      padding: 0;
   }
 
   header nav {
@@ -511,23 +436,6 @@ body {
 
   h2 {
       font-size: 24px;
-  }
-
-  .filtros {
-    flex-direction: column;
-    margin: 15px;
-  }
-
-  .filtros h3 {
-    padding: 5px 0;
-  }
-  .filtros select{
-    text-align: center;
-  }
-
-  .filtros select,
-  .filtros input {
-    width: 90%;
   }
 }
 
@@ -560,20 +468,6 @@ body {
       margin-bottom: 10px;
   }
 
-  .filtros {
-    flex-direction: column;
-  }
-
-  .filtros h3 {
-    padding: 5px 0;
-  }
-
-  .filtros select{
-    text-align: center;
-  }
-  .filtros select,
-  .filtros input {
-    width: 90%;
-  }
 }
+
 

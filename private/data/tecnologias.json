@@ -1,0 +1,76 @@
+{
+    "tecnologias": [
+        {
+            "title": "HTML",
+            "image": "/images/tecnologias/html-logo.png",
+            "description": "Linguagem de marcação fundamental para estruturação de conteúdo web, permitindo a criação de páginas com elementos semânticos e organizados.",
+            "rating": 4.5
+        },
+        {
+            "title": "CSS",
+            "image": "/images/tecnologias/css-logo.png", 
+            "description": "Linguagem de estilização que permite definir a apresentação visual de documentos HTML, controlando layout, cores, fontes e responsividade.",
+            "rating": 4.7
+        },
+        {
+            "title": "JavaScript",
+            "image": "/images/tecnologias/javascript-logo.png",
+            "description": "Linguagem de programação client-side que adiciona interatividade e dinamismo às páginas web, permitindo manipulação do DOM e criação de aplicações web complexas.",
+            "rating": 5
+        },
+        {
+            "title": "JSON",
+            "image": "/images/tecnologias/json-logo.png",
+            "description": "Formato leve de intercâmbio de dados, fácil de ler e escrever para humanos e simples de parsear e gerar para máquinas.",
+            "rating": 4.3
+        },
+        {
+            "title": "API RESTful",
+            "image": "/images/tecnologias/rest-api-logo.png",
+            "description": "Arquitetura de comunicação entre sistemas baseada em recursos, utilizando métodos HTTP padrão para realizar operações CRUD.",
+            "rating": 4.6
+        },
+        {
+            "title": "Swagger",
+            "image": "/images/tecnologias/swagger-logo.png",
+            "description": "Ferramenta de documentação de APIs que permite descrever, produzir, consumir e visualizar serviços web RESTful.",
+            "rating": 4.2
+        },
+        {
+            "title": "GitHub",
+            "image": "/images/tecnologias/github-logo.png",
+            "description": "Plataforma de hospedagem de código-fonte com controle de versão, facilitando colaboração e gerenciamento de projetos de software.",
+            "rating": 5
+        },
+        {
+            "title": "Codespaces",
+            "image": "/images/tecnologias/codespaces-logo.png",
+            "description": "Ambiente de desenvolvimento em nuvem do GitHub que permite codificar, desenvolver e hospedar projetos diretamente no navegador.",
+            "rating": 4.4
+        },
+        {
+            "title": "GitHub Pages",
+            "image": "/images/tecnologias/github-pages-logo.png",
+            "description": "Serviço de hospedagem gratuito que permite publicar sites diretamente de repositórios GitHub, facilitando a implantação de projetos web.",
+            "rating": 4.5
+        },
+        {
+            "title": "React.js",
+            "image": "/images/tecnologias/react-logo.png",
+            "description": "Biblioteca JavaScript para construção de interfaces de usuário, baseada em componentes reutilizáveis e com renderização eficiente.",
+            "rating": 5
+        },
+        {
+            "title": "Next.js",
+            "image": "/images/tecnologias/nextjs-logo.png",
+            "description": "Framework React que oferece renderização do lado do servidor, geração de sites estáticos e outras otimizações de desempenho.",
+            "rating": 4.8
+        },
+        {
+            "title": "Vercel",
+            "image": "/images/tecnologias/vercel-logo.png",
+            "description": "Plataforma de implantação e hospedagem para aplicações web, com foco em front-end e especialmente otimizada para projetos Next.js.",
+            "rating": 4.6
+        }
+    ]
+}

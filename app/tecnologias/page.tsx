@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function Page() {
     return (
@@ -10,16 +10,14 @@ export default function Page() {
                     <article className="carta-frontal">
                         <h1>Tecnologias</h1>
                         <p>
-                            Estou muito feliz por começar a criar esta aplicação incrível! Aqui, você acompanhará
-                            o progresso de um programador a explorar o fascinante mundo de componentes dinâmicos e
+                            Estou muito feliz por começar a criar esta aplicação incrível! Aqui, você acompanhará 
+                            o progresso de um programador a explorar o fascinante mundo de componentes dinâmicos e 
                             funcionalidades modernas de desenvolvimento web.
                         </p>
                         <p>
-                            Descubra as tecnologias que impulsionam o nosso trabalho. Desde frameworks modernos como
-                            React e Next.js até ferramentas robustas de backend, estamos sempre na vanguarda do
-                            desenvolvimento.
+                            Cada linha de código é um passo rumo ao futuro, e mal posso esperar para compartilhar mais 
+                            novidades e funcionalidades incríveis. Obrigado por visitar!
                         </p>
-                        <p>Fique por dentro das inovações e veja como aplicamos tecnologia no dia a dia!</p>
                     </article>
                 </section>
             </section>
