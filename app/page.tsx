@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function Page() {
     return (
-        <main>
-            <section id="carta">
-            <section id="carta-conteudo">
-                    <article id="carta-traseira">
+        <main className="mainCarta">
+            <section className="carta">
+                <section className="carta-conteudo">
+                    <article className="carta-traseira">
                     </article>
-                    <article id="carta-frontal">
+                    <article className="carta-frontal">
                         <h1>Bem-vindo à Minha Jornada com React e Next.js</h1>
                         <p>
                             Estou muito feliz por começar a criar esta aplicação incrível! Aqui, você acompanhará 
@@ -21,7 +21,6 @@ export default function Page() {
                     </article>
                 </section>
             </section>
-               
         </main>
     );
 }

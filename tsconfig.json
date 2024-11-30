@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.mjs", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/Footer/Footer.tsx", "app/layout.tsx", "app/page.tsx", "app/tecnologias/page.tsx", "app/produtos/page.tsx", "next.config.mjs", "tailwind.config.js"],
+  "include": ["next-env.d.mjs", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Footer/Footer.tsx", "app/layout.tsx", "app/page.tsx", "app/tecnologias/page.tsx", "app/produtos/Card.js", "next.config.mjs", "tailwind.config.js", "app/produtos/page.js"],
   "exclude": ["node_modules"]
 }
