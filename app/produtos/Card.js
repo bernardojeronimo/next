@@ -15,7 +15,7 @@ const ProdutosCarrinho = ({
       {/* Produtos */}
       <section className="pCont">
         {produtos.map(produto => (
-          <article  className="produto">
+          <article key={produto.id} className="produto">
             <figure>
               <img src={produto.image} alt={produto.title} />
             </figure>
