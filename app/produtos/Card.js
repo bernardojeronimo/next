@@ -46,7 +46,7 @@ const ProdutosCarrinho = ({
             {carrinho.map((produto) => (
               <section key={produto.id} className="carrinho">
                 <figure>
-                  <Image
+                  <img
                     src={produto.image}
                     alt={produto.title}
                     width={100} // ajuste conforme necessário
