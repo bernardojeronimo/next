@@ -1,45 +1,127 @@
+@keyframes neon {
+  0% {
+    color: rgb(227, 178, 159);
+  }
+  15% {
+    color: rgb(236, 73, 8);
+  }
+  20% {
+    color: rgb(227, 178, 159);
+  }
+  25% {
+    color: rgb(149, 222, 222);
+  }
+  40% {
+    color: rgb(29, 160, 160);
+  }
+  45% {
+    color: rgb(149, 222, 222);
+  }
+  50% {
+    color: rgb(196, 149, 239);
+  }
+  65% {
+    color: rgb(114, 48, 177);
+  }
+  70% {
+    color: rgb(196, 149, 239);
+  }
+  75% {
+    color: rgb(150, 232, 222);
+  }
+  90% {
+    color: rgb(44, 169, 154);
+  }
+  95% {
+    color: rgb(150, 232, 222);
+  }
+  100% {
+    color: rgb(227, 178, 159);
+  }
+}
+@import './components/Header/Header.module.css';
+@import './components/Footer/Footer.module.css';
+
 body {
-  /* box model */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  height: 100vh;
   padding: 0;
   margin: 0;
-
-  background-color: rgb(161, 205, 244);
+  background-image: url('./fundo.png');
+  background-size: contain;
+  background-position: center
+  ;
 }
+
 
 main {
-  width: 320px;
-  height: 450px;
-  padding: 20px;
-  border-radius: 20px;
-  background: rgb(199, 228, 252);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#carta {
+  margin: 20px;
+  width: 385px;
+  height: 545px;
+  perspective: 1000px; 
+}
+
+#carta-conteudo {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+#carta:hover #carta-conteudo {
+  transform: rotateY(180deg);
+}
+
+#carta-traseira, #carta-frontal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: background 0.2s;
 }
 
-@keyframes neon {
-  0% {
-    color: rgb(159, 227, 227);
-  }
-  50% {
-    color: rgb(29, 160, 160);
-  }
-  100%{
-    color: rgb(159, 227, 227);
-  }
+#carta-traseira {
+  background-color: #ffffff;
+  background-image: url('./carta.png');
+  background-position: center;
+  color: #fff;
 }
 
-h1 {
+#carta-frontal {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+#carta-frontal h1 {
+  font-size: 20px;
+  text-align: center;
   color: rgb(177, 226, 226);
-  animation: neon 10s ease-in-out infinite; 
+  animation: neon 10s ease-in-out infinite;
+  padding-top: 20px;
+  margin-bottom: 10px;
 }
 
-main:hover {
-  background: rgb(209, 225, 238);
-  transform: translateY(3px); 
+#carta-frontal p {
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left:30px ;
+  padding-right: 30px;
+  justify-content: center;
 }
