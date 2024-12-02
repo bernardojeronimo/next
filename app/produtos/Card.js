@@ -1,5 +1,3 @@
-
-
 const ProdutosCarrinho = ({
   produtos,
   carrinho,
@@ -43,24 +41,24 @@ const ProdutosCarrinho = ({
         <h2>Produtos Selecionados</h2>
         {carrinho.length > 0 ? (
           <section className="pCont">
-            {carrinho.map((produto) => (
-              <section key={produto.id} className="carrinho">
+            {carrinho.map((produto, index) => (
+              <section key={`${produto.id}-${index}`} className="carrinho">
                 <figure>
                   <img
                     src={produto.image}
                     alt={produto.title}
-                    width={100} // ajuste conforme necessário
-                    height={100} // ajuste conforme necessário
                   />
                 </figure>
                 <section className="produto-info">
                   <h2>{produto.title}</h2>
                   <span className="categoria">{produto.category}</span>
                 </section>
-                <section className="produto-detalhes">
+                <section className="produto-dalhes">
                   <strong className="preco">{produto.price.toFixed(2)}€</strong>
                 </section>
-                <button onClick={() => removerCarrinho(produto)}>- Remover do cesto</button>
+                <button onClick={() => removerCarrinho(produto)}>
+                  - Remover do cesto
+                </button>
               </section>
             ))}
             <p className="total">Custo total: {calcularTotalCarrinho()}€</p>
@@ -69,6 +67,7 @@ const ProdutosCarrinho = ({
           <p className="empty-cart-message">O carrinho está vazio</p>
         )}
       </section>
+
     </section>
   );
 };

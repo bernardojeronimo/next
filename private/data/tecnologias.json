@@ -1,5 +1,4 @@
-{
-    "tecnologias": [
+ [
         {
             "title": "HTML",
             "image": "/images/tecnologias/html-logo.png",
@@ -72,5 +71,4 @@
             "description": "Plataforma de implantação e hospedagem para aplicações web, com foco em front-end e especialmente otimizada para projetos Next.js.",
             "rating": 4.6
         }
-    ]
-}
+ ]

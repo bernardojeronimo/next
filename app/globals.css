@@ -144,10 +144,15 @@ h2{
   margin: 0;
 }
 
+.home-body footer{
+  color: rgb(29, 160, 160);;
+}
+
 
 .home-body nav a{
   text-shadow: none;
 }
+
 
 .home-body header {
   width: 100%;

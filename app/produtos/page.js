@@ -2,24 +2,22 @@
 
 import { useEffect, useState } from "react";
 import Produtos from "./Card";
+import produtosJSON from '@/private/data/produtos.json';
 
 export default function Home() {
-
   useEffect(() => {
     document.body.classList.add('home-body');
     return () => {
       document.body.classList.remove('home-body');
     };
   }, []);
+
   const [produtos, setProdutos] = useState([]);
   const [carrinho, setCarrinho] = useState([]);
 
   useEffect(() => {
-    // Carregar os produtos
-    fetch('https://deisishop.pythonanywhere.com/products/')
-      .then(response => response.json())
-      .then(data => setProdutos(data))
-      .catch(error => console.error('Erro ao carregar produtos:', error));
+    // Carregar produtos do JSON local
+    setProdutos(produtosJSON);
 
     // Carregar carrinho do localStorage
     const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho')) || [];
