@@ -12,7 +12,8 @@ export default function Home() {
     };
   }, []);
 
-  const tec = useState([]);
+
+  const [tec,setTec] = useState([]);
 
   useEffect(() => {
     setTec(tecJSON);
