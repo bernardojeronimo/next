@@ -1,5 +1,3 @@
-import useSWR from "swr";
-
 export interface Product {
   id: string;
   title: string;
@@ -12,4 +10,14 @@ export interface Product {
       count: number;
   };
 }
+
+export interface Tecnologia {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+  rating: number;
+}
+
+
 

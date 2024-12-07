@@ -8,7 +8,7 @@ import { Product } from '../models/interfaces';
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Page() {
-  const { data, error, isLoading } = useSWR<Product[]>('/api/produtos', fetcher);
+  const { data, error, isLoading } = useSWR<Product[]>('https://deisishop.pythonanywhere.com/products/', fetcher);
 
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
@@ -17,10 +17,11 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Produtos</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">Produtos</h1>
+      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data.map((product) => (
           <Card
+            key={product.id}
             id={product.id}
             title={product.title}
             category={product.category}
