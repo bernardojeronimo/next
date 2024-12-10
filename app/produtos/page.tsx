@@ -5,10 +5,10 @@ import useSWR from 'swr';
 import Card from './Card'; 
 import { Product } from '../models/interfaces';
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Page() {
-  const { data, error, isLoading } = useSWR<Product[]>('https://deisishop.pythonanywhere.com/products/', fetcher);
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data, error, isLoading } = useSWR<Product[], Error>('api/products', fetcher);
 
   useEffect(() => {
     document.body.classList.add('home-body');
@@ -18,9 +18,9 @@ export default function Page() {
     };
   }, []);
 
-  if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
-  if (!data) return <div>No data available</div>;
+  if (error) return <>Failed to load</>;
+  if (isLoading) return <>Loading...</>;
+  if (!data) return <>No data available</>;
 
   return (
     <section className="container mx-auto px-4 py-8">
