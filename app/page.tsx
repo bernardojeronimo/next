@@ -2,13 +2,13 @@ import React from 'react';
 
 export default function Page() {
     return (
-        <main className="mainCarta">
+        <main className="mainCarta p-10">
             <section className="carta">
                 <section className="carta-conteudo">
                     <article className="carta-traseira">
                     </article>
-                    <article className="carta-frontal">
-                        <h1>Bem-vindo à Minha Jornada com React e Next.js</h1>
+                    <article className="carta-frontal p-5">
+                        <h1 className='pb-10'>Bem-vindo à Minha Jornada com React e Next.js</h1>
                         <p>
                             Estou muito feliz por começar a criar esta aplicação incrível! Aqui, você acompanhará 
                             o progresso de um programador a explorar o fascinante mundo de componentes dinâmicos e 

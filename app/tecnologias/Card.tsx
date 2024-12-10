@@ -8,27 +8,27 @@ export default function Card({
   rating,
 }: Tecnologia) {
   return (
-    <div className="bg-white border rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 flex flex-col">
-      <div className="overflow-hidden rounded-t-lg">
+    <section className="bg-white border rounded-xl shadow-xl hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 flex flex-col">
+      <article className="overflow-hidden rounded-t-lx pt-10">
         <img
           src={image}
           alt={title}
           className="w-full h-36 object-contain"
         />
-      </div>
-      <div className="p-4 flex-grow">
-        <h2 className="text-lg font-bold text-gray-800 truncate">
+      </article>
+      <article className="p-4 flex-grow">
+        <h2 className="text-lg font-bold text-gray-800">
           {title}
         </h2>
-        <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+        <p className="text-sm text-gray-600">
           {description}
         </p>
-      </div>
-      <div className="p-4 border-t flex justify-between items-center">
-        <div className="text-sm text-yellow-500">
+      </article>
+      <article className="p-4 border-t flex justify-between items-center">
+      <article className="text-sm text-yellow-500 flex items-center">
           {rating}⭐{" "}
-        </div>
-      </div>
-    </div>
+        </article>
+      </article>
+    </section>
   );
 }

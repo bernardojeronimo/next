@@ -15,7 +15,9 @@
 .header {
   color: rgb(31, 146, 146);
   text-align: center;
-  text-shadow: 3px 2px 1px rgb(27, 69, 69);
+  font-weight: bold;
+  font-size: 30px;
+  padding-bottom: 10px;
 }
 
 .header ul {

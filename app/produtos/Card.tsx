@@ -10,37 +10,39 @@ export default function Card({
   rating,
 }: Product) {
   return (
-    <div className="bg-white border rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 flex flex-col">
+    <section className="bg-white border rounded-xl shadow-xl hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 flex flex-col">
       {/* Imagem do Produto */}
-      <div className="overflow-hidden rounded-t-lg">
+      <article className="overflow-hidden rounded-t-lx pt-10">
         <img
           src={image}
           alt={title}
           className="w-full h-36 object-contain"
         />
-      </div>
+      </article>
 
       {/* Corpo do Card */}
-      <div className="p-4 flex-grow">
-        <h2 className="text-lg font-bold text-gray-800 truncate">
+      <article className="p-4 flex-grow">
+        <h2 className="text-lg font-bold text-gray-800">
           {title}
         </h2>
-        <p className="text-sm text-gray-500 italic">{category}</p>
-        <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+        <p className="text-sm text-blue-500 italic font-bold pb-2">
+          {category}
+        </p>
+        <p className="text-sm text-gray-600">
           {description}
         </p>
-      </div>
+      </article>
 
       {/* Rodapé do Card */}
-      <div className="p-4 border-t flex justify-between items-center">
+      <article className="p-4 border-t flex justify-between items-center">
         <span className="text-lg font-bold text-blue-600">
           {price.toFixed(2)}€
         </span>
-        <div className="text-sm text-yellow-500 flex items-center">
+        <article className="text-sm text-yellow-500 flex items-center">
           {rating.rate}⭐{" "}
           <span className="text-gray-400 ml-2">({rating.count})</span>
-        </div>
-      </div>
-    </div>
+        </article>
+      </article>
+    </section>
   );
 }
