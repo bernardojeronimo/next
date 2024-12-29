@@ -19,5 +19,27 @@ export interface Tecnologia {
   rating: number;
 }
 
+export interface FilterProps {
+  onCategoryChange: (category: string) => void;
+  onSortChange: (sortType: string) => void;
+  onSearchChange: (search: string) => void;
+  searchValue: string;
+}
 
+export interface SearchBarProps {
+  search: string;
+  setSearch: (value: string) => void;
+}
 
+export interface SearchFilterProps {
+  onSearchChange: (search: string) => void;
+  searchValue: string;
+}
+
+export interface SortFilterProps {
+  onSortChange: (sortType: string) => void;
+}
+
+export interface CategoryFilterProps {
+  onCategoryChange: (category: string) => void;
+}

@@ -148,6 +148,10 @@ h2{
   margin: 0;
 }
 
+.home-body header h1{
+  text-decoration: underline rgb(82, 82, 82);
+}
+
 .home-body footer{
   color: rgb(29, 160, 160);;
 }
@@ -176,6 +180,3 @@ h2{
   padding: 2px;
   text-shadow:none;
 }
-
-
-

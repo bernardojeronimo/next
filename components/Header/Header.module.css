@@ -14,9 +14,9 @@
 
 .header {
   color: rgb(31, 146, 146);
-  text-align: center;
-  font-weight: bold;
   font-size: 30px;
+  font-weight: bold;
+  text-align: center;
   padding-bottom: 10px;
 }
 
@@ -42,7 +42,6 @@
 
 
 .nav a:hover {
-  text-decoration: underline;
   text-decoration-color: #fff;
   animation: textDec 1s ease-in-out infinite;
 }
