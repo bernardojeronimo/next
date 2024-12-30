@@ -1,75 +1,65 @@
 import { useState, useEffect } from 'react';
-import { Product } from '../../app/models/interfaces';
 
-export interface CartItem extends Product {
-  id: string;
+interface CartItem {
+  image: string;
+  id: number;
+  name: string;
+  price: number;
   quantity: number;
 }
 
 export function useCart() {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
-  // Load cart from localStorage on initial render
   useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      setCartItems(JSON.parse(savedCart));
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
     }
   }, []);
 
-  // Save cart to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  const addToCart = (product: Product) => {
-    setCartItems(currentItems => {
-      const existingItem = currentItems.find(item => item.id === product.id);
+  const addToCart = (product: Omit<CartItem, 'quantity'>) => {
+    setCart(prevCart => {
+      const existingItem = prevCart.find(item => item.id === product.id);
       
       if (existingItem) {
-        return currentItems.map(item =>
-          item.id === product.id
+        const updatedCart = prevCart.map(item => 
+          item.id === product.id 
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        return updatedCart;
       }
-      
-      return [...currentItems, { ...product, quantity: 1 }];
+
+      const newCart = [...prevCart, { ...product, quantity: 1 }];
+      localStorage.setItem('cart', JSON.stringify(newCart));
+      return newCart;
     });
   };
 
   const removeFromCart = (productId: number) => {
-    setCartItems(currentItems =>
-      currentItems.filter(item => item.id !== productId.toString())
-    );
+    setCart(prevCart => {
+      const updatedCart = prevCart.filter(item => item.id !== productId);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      return updatedCart;
+    });
   };
 
   const updateQuantity = (productId: number, quantity: number) => {
-    if (quantity < 1) return;
-    
-    setCartItems(currentItems =>
-      currentItems.map(item =>
-        item.id === productId.toString()
-          ? { ...item, quantity }
-          : item
-      )
-    );
-  };
-
-  const clearCart = () => {
-    setCartItems([]);
-  };
-
-  const getTotal = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    setCart(prevCart => {
+      const updatedCart = prevCart.map(item =>
+        item.id === productId ? { ...item, quantity } : item
+      );
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      return updatedCart;
+    });
   };
 
   return {
-    cartItems,
+    cart,
     addToCart,
     removeFromCart,
     updateQuantity,
-    clearCart,
-    getTotal,
   };
 }

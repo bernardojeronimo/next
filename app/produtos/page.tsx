@@ -4,15 +4,16 @@ import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import Card from './Card';
 import FilterBar from '../../components/SearchBar/FilterBar';
-import CartButton from '../../components/Cart/btn';
-import CartModal from '../../components/Cart/Cart';
+import Btn  from '../../components/Cart/Btn';
+import { Cart } from '../../components/Cart/Cart';
 import { useFilters } from '../../components/hooks/useFilters';
 import { Product } from '../models/interfaces';
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 export default function Page() {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data, error, isLoading } = useSWR<Product[], Error>('api/products', fetcher);
+  const { data, error, isLoading } = useSWR<Product[]>('/api/products', fetcher);
   const { filteredData, setCategory, setSortType, search, setSearch } = useFilters(data);
 
   useEffect(() => {
@@ -22,9 +23,9 @@ export default function Page() {
     };
   }, []);
 
-  if (error) return <>Failed to load</>;
-  if (isLoading) return <>Loading...</>;
-  if (!data) return <>No data available</>;
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (!data) return <div>No data available</div>;
 
   return (
     <section className="container mx-auto px-4 py-8">
@@ -39,20 +40,11 @@ export default function Page() {
       />
       <article className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredData.map((product) => (
-          <Card
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            category={product.category}
-            price={product.price}
-            description={product.description}
-            image={product.image}
-            rating={product.rating}
-          />
+          <Card key={product.id} {...product} />
         ))}
       </article>
-      <CartButton onClick={() => setIsCartOpen(true)} />
-      <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <Btn/>
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </section>
   );
 }

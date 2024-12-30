@@ -1,47 +1,64 @@
 import React from 'react';
-import { CartItem as CartItemType } from '../hooks/useCart';
 
 interface CartItemProps {
-  item: CartItemType;
-  onUpdateQuantity: (productId: number, quantity: number) => void;
-  onRemove: (productId: number) => void;
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+  onUpdateQuantity: (id: number, quantity: number) => void;
+  onRemove: (id: number) => void;
 }
 
-export default function Item({ item, onUpdateQuantity, onRemove }: CartItemProps) {
+export function Item({ 
+  id, 
+  name, 
+  price, 
+  quantity, 
+  image,
+  onUpdateQuantity, 
+  onRemove 
+}: CartItemProps) {
   return (
-    <div className="flex items-center justify-between p-4 border-b">
-      <div className="flex items-center space-x-4">
-        <img 
-          src={item.image} 
-          alt={item.title} 
-          className="w-16 h-16 object-cover rounded"
+    <div className="bg-white border rounded-xl shadow-md mb-4 flex flex-col">
+      <div className="overflow-hidden rounded-t-xl pt-4">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-32 object-contain"
         />
-        <div>
-          <h3 className="font-medium">{item.title}</h3>
-          <p className="text-gray-600">R$ {item.price.toFixed(2)}</p>
-        </div>
       </div>
       
-      <div className="flex items-center space-x-4">
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={() => onUpdateQuantity(Number(item.id), item.quantity - 1)}
-            className="px-2 py-1 bg-gray-200 rounded"
-          >
-            -
-          </button>
-          <span>{item.quantity}</span>
-          <button
-            onClick={() => onUpdateQuantity(Number(item.id), item.quantity + 1)}
-            className="px-2 py-1 bg-gray-200 rounded"
-          >
-            +
-          </button>
+      <div className="p-4">
+        <h2 className="text-lg font-bold text-gray-800 mb-2">
+          {name}
+        </h2>
+        
+        <div className="flex justify-between items-center">
+          <span className="text-lg font-bold text-blue-600">
+            R$ {price.toFixed(2)}
+          </span>
+          
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={() => quantity > 1 && onUpdateQuantity(id, quantity - 1)}
+              className="px-3 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+            >
+              -
+            </button>
+            <span className="w-8 text-center">{quantity}</span>
+            <button 
+              onClick={() => onUpdateQuantity(id, quantity + 1)}
+              className="px-3 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+            >
+              +
+            </button>
+          </div>
         </div>
         
-        <button
-          onClick={() => onRemove(Number(item.id))}
-          className="text-red-500 hover:text-red-700"
+        <button 
+          onClick={() => onRemove(id)}
+          className="mt-3 w-full py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
         >
           Remover
         </button>

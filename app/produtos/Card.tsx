@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { Product } from "../models/interfaces";
 import { useCart } from '../../components/hooks/useCart';
 
-interface CardProps extends Product {}
-
-export default function Card(props: CardProps) {
+export default function Card(props: Product) {
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
 
   const handleAddToCart = () => {
-    addToCart(props);
+    // Pass the product data to addToCart
+    addToCart({
+      id: Number(props.id),
+      name: props.title,
+      price: props.price,
+    });
+    
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
@@ -17,7 +21,6 @@ export default function Card(props: CardProps) {
   };
 
   return (
-    
     <section className="bg-white border rounded-xl shadow-xl hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 flex flex-col">
       {/* Imagem do Produto */}
       <article className="overflow-hidden rounded-t-lx pt-10">
@@ -52,12 +55,12 @@ export default function Card(props: CardProps) {
         </article>
       </article>
       <button
-          onClick={handleAddToCart}
-          className={`w-full py-2 rounded transition-colors duration-200 
-            bg-blue-400 hover:bg-blue-500 text-white`}
-        >
-          {isAdded ? 'Adicionado' : 'Adicionar ao Carrinho'}
-        </button>
+        onClick={handleAddToCart}
+        className={`w-full py-2 rounded transition-colors duration-200 
+          ${isAdded ? 'bg-green-500' : 'bg-blue-400 hover:bg-blue-500'} text-white`}
+      >
+        {isAdded ? 'Adicionado' : 'Adicionar ao Carrinho'}
+      </button>
     </section>
   );
 }
