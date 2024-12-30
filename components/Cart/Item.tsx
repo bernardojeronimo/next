@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface CartItemProps {
-  id: number;
+  id: string;
   name: string;
   price: number;
   quantity: number;
@@ -41,14 +41,14 @@ export function Item({
           
           <div className="flex items-center gap-2">
             <button 
-              onClick={() => quantity > 1 && onUpdateQuantity(id, quantity - 1)}
+              onClick={() => quantity > 1 && onUpdateQuantity(Number(id), quantity - 1)}
               className="px-3 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
             >
               -
             </button>
             <span className="w-8 text-center">{quantity}</span>
             <button 
-              onClick={() => onUpdateQuantity(id, quantity + 1)}
+              onClick={() => onUpdateQuantity(Number(id), quantity + 1)}
               className="px-3 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
             >
               +
@@ -57,7 +57,7 @@ export function Item({
         </div>
         
         <button 
-          onClick={() => onRemove(id)}
+          onClick={() => onRemove(Number(id))}
           className="mt-3 w-full py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
         >
           Remover

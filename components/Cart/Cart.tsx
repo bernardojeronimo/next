@@ -2,14 +2,13 @@ import React from 'react';
 import { useCart } from '../../components/hooks/useCart';
 import { Item } from './Item';
 
-interface CartModalProps {
+interface CartProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function Cart({ isOpen, onClose }: CartModalProps) {
-  const { cart, updateQuantity, removeFromCart } = useCart();
-  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+export function Cart({ isOpen, onClose }: CartProps) {
+  const { cartItems, updateQuantity, removeFromCart, getTotal } = useCart();
 
   if (!isOpen) return null;
 
@@ -23,24 +22,23 @@ export function Cart({ isOpen, onClose }: CartModalProps) {
           </button>
         </div>
 
-        {cart.length === 0 ? (
+        {cartItems.length === 0 ? (
           <p>Seu carrinho está vazio</p>
         ) : (
           <>
             <div className="space-y-4">
-              {cart.map((item) => (
+              {cartItems.map((item) => (
                 <Item
-                  key={item.id}
+                  name={''} key={item.id}
                   {...item}
                   onUpdateQuantity={updateQuantity}
-                  onRemove={removeFromCart}
-                />
+                  onRemove={removeFromCart}                />
               ))}
             </div>
             <div className="border-t pt-4 mt-4">
               <div className="flex justify-between font-bold">
                 <span>Total:</span>
-                <span>R$ {total.toFixed(2)}</span>
+                <span>R$ {getTotal().toFixed(2)}</span>
               </div>
             </div>
           </>
