@@ -64,6 +64,7 @@ export interface CartProps {
   updateQuantity: (productId: string, quantity: number) => void;
   removeFromCart: (productId: string) => void;
   getTotal: () => number;
+  handlePurchase: () => void;
 }
 
 export interface ItemProps {

@@ -4,4 +4,3 @@ export async function GET() {
         .then(res => res.json())
         .then(data => Response.json(data))
 }
-
