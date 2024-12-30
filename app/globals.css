@@ -126,16 +126,6 @@ body {
   justify-content: center;
 }
 
-h2{
-  display: flex;
-  color: #333;
-  font-size: 30px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  justify-content: center;
-  
-}
-
 .home-body{
   display: flex;
   flex-direction: column;

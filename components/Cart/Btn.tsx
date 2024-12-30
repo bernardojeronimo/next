@@ -1,28 +1,17 @@
-import React, { useState } from 'react';
-import { useCart } from '../../components/hooks/useCart';
-import { Cart } from './Cart';
+import React from 'react';
+import { BtnProps } from '../../app/models/interfaces';
 
-export default function Btn() {
-  const [isOpen, setIsOpen] = useState(false);
-  const { cartItems } = useCart();
-
+export default function Btn({ onOpen, cartItemCount }: BtnProps) {
   return (
-    <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
-      >
-        <div className="relative">
-          <div className="flex items-center">
-            🛒 ({cartItems.length})
-          </div>
+    <button
+      onClick={onOpen}
+      className="fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+    >
+      <div className="relative">
+        <div className="flex items-center">
+          🛒 ({cartItemCount})
         </div>
-      </button>
-      
-      <Cart
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      />
-    </>
+      </div>
+    </button>
   );
 }
